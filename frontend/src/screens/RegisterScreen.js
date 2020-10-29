@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
@@ -58,6 +58,7 @@ export default function RegisterScreen({ location, history }) {
             placeholder='Enter name'
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
         </Form.Group>
         <Form.Group controlId='email'>
@@ -67,6 +68,7 @@ export default function RegisterScreen({ location, history }) {
             placeholder='Enter email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </Form.Group>
         <Form.Group controlId='password'>
@@ -76,6 +78,7 @@ export default function RegisterScreen({ location, history }) {
             placeholder='Enter password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </Form.Group>
         <Form.Group controlId='confirmPassword'>
@@ -85,6 +88,7 @@ export default function RegisterScreen({ location, history }) {
             placeholder='Confirm Password'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
+            required
           />
         </Form.Group>
         <Button type='submit' variant='primary'>

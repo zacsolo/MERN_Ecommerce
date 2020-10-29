@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
@@ -17,7 +17,7 @@ export default function LoginScreen({ location, history }) {
 
   const { loading, error, userInfo } = userLogin;
 
-  const redirect = location.search ? location.search.split('=') : '/';
+  const redirect = location.search ? location.search.split('=')[1] : '/';
 
   useEffect(() => {
     if (userInfo) {
@@ -38,6 +38,7 @@ export default function LoginScreen({ location, history }) {
         <Form.Group controlId='email'>
           <Form.Label>Email Address</Form.Label>
           <Form.Control
+            required
             type='email'
             placeholder='enter email'
             value={email}
@@ -47,6 +48,7 @@ export default function LoginScreen({ location, history }) {
         <Form.Group controlId='password'>
           <Form.Label>Password</Form.Label>
           <Form.Control
+            required
             type='password'
             placeholder='enter password'
             value={password}
