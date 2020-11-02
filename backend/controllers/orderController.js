@@ -43,7 +43,7 @@ export const getOrderById = asyncHandler(async (req, res) => {
     'user',
     'name email'
   );
-  console.log(order);
+
   if (order) {
     res.json(order);
   } else {
