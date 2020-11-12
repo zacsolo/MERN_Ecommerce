@@ -3,6 +3,7 @@ import express from 'express';
 import multer from 'multer';
 const router = express.Router();
 
+//Initialize Storage Engine
 const storage = multer.diskStorage({
   destination(req, file, cb) {
     cb(null, 'uploads/');
@@ -27,6 +28,7 @@ function checkFileType(file, cb) {
   }
 }
 
+//Passing in as middleware to our Route
 const upload = multer({
   storage,
   fileFilter: function (req, file, cb) {
@@ -34,6 +36,7 @@ const upload = multer({
   },
 });
 
+//Endpoint
 router.post('/', upload.single('image'), (req, res) => {
   res.send(`/${req.file.path}`);
 });
